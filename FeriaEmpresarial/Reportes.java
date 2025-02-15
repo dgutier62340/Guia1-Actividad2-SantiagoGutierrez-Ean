@@ -1,0 +1,1 @@
+public class Reportes {	public void ReporteEmpresas() {	}	public void ReporteVisitantes() {	}	public void ReporteStands() {	}}

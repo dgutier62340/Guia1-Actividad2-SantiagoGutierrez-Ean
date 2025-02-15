@@ -1,0 +1,1 @@
+public enum TamañoStand {	Pequeño,	Mediano,	Grande;}
