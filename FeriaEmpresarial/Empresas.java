@@ -8,7 +8,7 @@ public class Empresas {
 
 	private String correoEmpresa;
 
-	private static ArrayList<Empresas> listaEmpresas = new ArrayList<>(); // Creamos un array para almacenar los objetos de clase empresas
+	public static ArrayList<Empresas> listaEmpresas = new ArrayList<>(); // Creamos un array para almacenar los objetos de clase empresas
 
 	public Empresas (String nombreEmpresa, String sectorEmpresa, String correoEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
@@ -48,6 +48,10 @@ public class Empresas {
 					eliminarEmpresa();
 					break;
 
+				case 4:
+					listarEmpresas();
+					break;
+
 				default:
 					System.out.println("---- Opción invalida. Intente nuevamente ----");
 					break;
@@ -57,6 +61,9 @@ public class Empresas {
     }
 
 	public static void registrarEmpresa () { //Solicitamos datos y creamos un nuevo objeto de la clase Empresa y lo almacenamos en el array
+
+		Stands.inicializarStands();
+		Stands.listarStands();
 
 		System.out.print("\n---------------------------------\n");
 		System.out.print("Ingrese nombre de la empresa: ");
@@ -73,6 +80,11 @@ public class Empresas {
 		listaEmpresas.add(nuevaEmpresa);
 
 		System.out.println("\nLa empresa "+ nombreEmpresa + " ha sido registrada correctamente");
+
+		Stands.asignarStandEmpresa(nuevaEmpresa);  // Llamamos a asignar un stand inmediatamente después de registrar la empresa
+
+		Stands.listarStands();
+
 	}
 
 	public static void editarEmpresa() { //Solicitamos nombre ya ingresado, accedemos al array y modificamos el objeto actual
@@ -115,4 +127,31 @@ public class Empresas {
 		}
 	}
 
+	public static void listarEmpresas() {
+		if (listaEmpresas.isEmpty()) {
+			System.out.println("\nNo hay empresas registradas.\n");
+		} else {
+			System.out.println("\nListado de Empresas:\n");
+			for (Empresas empresa : listaEmpresas) {
+				System.out.println("Nombre: " + empresa.getNombreEmpresa() + " | Sector: " + empresa.getSectorEmpresa() + " | Correo: " + empresa.getCorreoEmpresa());
+			}
+		}
+	}
+
+	// Getters
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public String getSectorEmpresa() {
+        return sectorEmpresa;
+    }
+
+    public String getCorreoEmpresa() {
+        return correoEmpresa;
+    }
+
+    public static ArrayList<Empresas> getListaEmpresas() {
+        return listaEmpresas;
+    }
 }
