@@ -25,6 +25,7 @@ public class Visitantes {
 				1. Registrar Visitante
 				2. Editar Visitante
 				3. Eliminar Visitante
+				4. Dejar Comentario
 				0. Salir
 				\nSeleccione una opción: """;
 	
@@ -46,8 +47,15 @@ public class Visitantes {
 					eliminarVisitante();
 					break;
 
+				case 4:
+					Comentarios.dejarComentario();
+					break;
+
+				case 0:
+					break;
+
 				default:
-					System.out.println("---- Opción invalida. Intente nuevamente ----");
+					System.out.println("\n---- Opción invalida. Intente nuevamente ----");
 					break;
 			}
 		}
@@ -116,4 +124,24 @@ public class Visitantes {
 			}
 		}
 	}
+
+	//Getters
+	
+	public String getNombreVisitante() {
+		return nombreVisitante;
+	}
+	
+	public int getNumeroIdentificacion() {
+		return numeroIdentificacion;
+	}
+	
+	public String getCorreoVisitante() {
+		return correoVisitante;
+	}
+
+	public static ArrayList<Visitantes> getListaVisitantes() {
+		return listaVisitantes;
+	}
+
 }
+

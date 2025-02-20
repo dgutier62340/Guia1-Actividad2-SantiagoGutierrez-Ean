@@ -1,25 +1,45 @@
 public class Reportes {
 
 	public static void mostrarMenuReportes() {
-        System.out.println("\n--- Menú Reportes ---");
-        System.out.println("1. Registrar Empresa");
-        System.out.println("2. Editar Empresa");
-        System.out.println("3. Eliminar Empresa");
-        System.out.println("0. Volver");
-        System.out.print("Seleccione una opción: ");
 
+        int OpReportes = 1; //Switch para habilitar el bucle
+
+		while ( OpReportes !=0 ) {
+			String textoMenuReportes = """
+				\n------ Menú Reportes ------
+				1. Reporte empresas registradas
+				2. Reporte Visitantes registrados
+				3. Calificación promedio de stand
+				0. Salir
+				\nSeleccione una opción: """; //Menu reportes
+	
+			System.out.print(textoMenuReportes);
+
+			OpReportes = Utilidades.scanner.nextInt();
+			Utilidades.scanner.nextLine();
+
+			switch (OpReportes) {
+				case 1:
+					Empresas.listarEmpresas();
+					Stands.listarStands();
+					break;
+				
+				case 2:
+					Comentarios.verComentariosPorStand();
+					break;
+
+				case 3:
+					Comentarios.promedioCalificacionesPorStand();
+					break;
+
+				case 0:
+					break;
+
+				default:
+					System.out.println("\n---- Opción invalida. Intente nuevamente ----");
+					break;
+			}
+		}
     }
-
-	public void ReporteEmpresas() {
-
-	}
-
-	public void ReporteVisitantes() {
-
-	}
-
-	public void ReporteStands() {
-
-	}
 
 }

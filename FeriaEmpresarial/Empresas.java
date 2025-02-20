@@ -48,12 +48,11 @@ public class Empresas {
 					eliminarEmpresa();
 					break;
 
-				case 4:
-					listarEmpresas();
+				case 0:
 					break;
 
 				default:
-					System.out.println("---- Opción invalida. Intente nuevamente ----");
+					System.out.println("\n---- Opción invalida. Intente nuevamente ----");
 					break;
 			}
 		}
@@ -63,7 +62,6 @@ public class Empresas {
 	public static void registrarEmpresa () { //Solicitamos datos y creamos un nuevo objeto de la clase Empresa y lo almacenamos en el array
 
 		Stands.inicializarStands();
-		Stands.listarStands();
 
 		System.out.print("\n---------------------------------\n");
 		System.out.print("Ingrese nombre de la empresa: ");

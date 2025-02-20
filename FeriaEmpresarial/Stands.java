@@ -9,7 +9,6 @@ public class Stands {
 	private boolean estado; // Para saber si esta disponible u ocupado
 	private Empresas empresaAsignada;
 
-
 	private static List<Stands> listaStands = new ArrayList<>(); //Creamos una lista para almacenar el estado de los Stands
 	private static final int MaxStands = 10; // Maximo 10 stands
 
@@ -20,11 +19,6 @@ public class Stands {
 		this.estado = false;
 		this.empresaAsignada = null;
 	}
-
-
-
-
-
 
 
 	public static void inicializarStands() {
@@ -115,6 +109,9 @@ public class Stands {
     public Empresas getEmpresaAsignada() {
         return empresaAsignada;
     }
+	public static List<Stands> getListaStands() {
+		return listaStands;
+	}
 
 	//Setters
 	public void setEstado(boolean estado) {
